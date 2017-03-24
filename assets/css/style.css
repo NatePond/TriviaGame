@@ -64,12 +64,17 @@ font-size: 50px;
 
 #title{
   font-size: 75px;
+  font-style: italic;
 }
 
 .a {
 list-style-type: none;
 }
 
+
+.btn {
+  font-size: 25px;
+}
 
 .navbar-fixed-bottom {
   width: 100%;
