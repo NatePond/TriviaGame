@@ -4,192 +4,118 @@ var incorrect = 0;
 
 var intervalId;
 
+
 window.onload = function() {
-  // timer.start();
-  game.gameset();
-
-
-  // $(".btn").on("click", timer.restart);
-  // $(".btn").on("click", timer.stop);
-  // $(".btn").on("click", timer.start);
-  // $(".btn").on("click", content.hideOld);
-  // $(".btn").on("click", content.thatsCorrect);
-
+  timer.start();
+  game.game1();
 
 };
 
 var game = {
-  gameset: function() {
+  count: 1,
+  gamemeta: function() {
+    game.counter();
+    if ($(this).attr("id")[1] == game.correctAns) {
+      correct++;
+      // timer.restart();
+      timer.stop();
+      content.hideOld();
+      content.thatsCorrect();
+      $("#content").append(game.correctAns)
+    } else {
+      incorrect++;
+      // timer.restart();
+      timer.stop();
+      content.hideOld();
+      content.thatsIncorrect();
+         $("#content").append(game.correctAns)
+    }
+    game["game" + game.count]();
+    console.log("wr" + incorrect)
+    console.log("ri" + correct)
+
+  },
+
+  counter: function() {
+    this.count++
+  },
+
+  game1: function() {
     time = 30;
-
+    this.correctAns = 2;
     $("#question").html(substance.t1.question);
-    $("#a1").html(substance.t1.incorrectAns[0]);
-    $("#a2").html(substance.t1.correctAns);
-    $("#a3").html(substance.t1.incorrectAns[1]);
-    $("#a4").html(substance.t1.incorrectAns[2]);
-    $("#a5").html(substance.t1.incorrectAns[3]);
-
-    $(".btn").click(function(event) {
-      console.log(this.id[1])
-
-
-      if (this.id[1] == 2) {
-        correct++;
-        // timer.restart();
-        timer.stop();
-        content.hideOld();
-        content.thatsCorrect();
-        game.game2();
-      } else {
-        incorrect++;
-        // timer.restart();
-        timer.stop();
-        content.hideOld();
-        content.thatsIncorrect();
-      }
-
-      console.log("wr" + incorrect)
-      console.log("ri" + correct)
-    });
-
+    $("#a1").html("1 . " + substance.t1.incorrectAns[0]);
+    $("#a2").html("2 . " + substance.t1.correctAns);
+    $("#a3").html("3 . " + substance.t1.incorrectAns[1]);
+    $("#a4").html("4 . " + substance.t1.incorrectAns[2]);
+    $("#a5").html("5 . " + substance.t1.incorrectAns[3]);
   },
 
   game2: function() {
+    this.correctAns = 1;
     $("#question").html(substance.t2.question);
-    $("#a1").html(substance.t2.incorrectAns[0]);
-    $("#a2").html(substance.t2.correctAns);
-    $("#a3").html(substance.t2.incorrectAns[1]);
-    $("#a4").html(substance.t2.incorrectAns[2]);
-    $("#a5").html(substance.t2.incorrectAns[3]);
-
-    $(".btn").click(function(event) {
-      console.log(this.id[1])
-
-
-      if (this.id[1] == 2) {
-        correct++;
-        // timer.restart();
-        timer.stop();
-        content.hideOld();
-        content.thatsCorrect();
-      } else {
-        incorrect++;
-        // timer.restart();
-        timer.stop();
-        content.hideOld();
-        content.thatsIncorrect();
-      }
-      game.game3();
-      console.log("wr" + incorrect)
-      console.log("ri" + correct)
-    });
+    $("#a2").html("2 . " + substance.t2.incorrectAns[0]);
+    $("#a1").html("1 . " + substance.t2.correctAns);
+    $("#a3").html("3 . " + substance.t2.incorrectAns[1]);
+    $("#a4").html("4 . " + substance.t2.incorrectAns[2]);
+    $("#a5").html("5 . " + substance.t2.incorrectAns[3]);
   },
 
   game3: function() {
+    this.correctAns = 4;
     $("#question").html(substance.t3.question);
-    $("#a1").html(substance.t3.incorrectAns[0]);
-    $("#a2").html(substance.t3.correctAns);
-    $("#a3").html(substance.t3.incorrectAns[1]);
-    $("#a4").html(substance.t3.incorrectAns[2]);
-    $("#a5").html(substance.t3.incorrectAns[3]);
-    $(".btn").click(function(event) {
-      console.log(this.id[1])
-
-
-      if (this.id[1] == 2) {
-        correct++;
-        // timer.restart();
-        timer.stop();
-        content.hideOld();
-        content.thatsCorrect();
-      } else {
-        incorrect++;
-        // timer.restart();
-        timer.stop();
-        content.hideOld();
-        content.thatsIncorrect();
-      }
-      game.game4();
-      console.log("wr" + incorrect)
-      console.log("ri" + correct)
-    });
+    $("#a1").html("1 . " + substance.t3.incorrectAns[0]);
+    $("#a4").html("4 . " + substance.t3.correctAns);
+    $("#a3").html("3 . " + substance.t3.incorrectAns[1]);
+    $("#a2").html("2 . " + substance.t3.incorrectAns[2]);
+    $("#a5").html("5 . " + substance.t3.incorrectAns[3]);
   },
 
   game4: function() {
-    clearInterval(intervalId);
+    this.correctAns = 3;
     $("#question").html(substance.t4.question);
-    $("#a1").html(substance.t4.incorrectAns[0]);
-    $("#a2").html(substance.t4.correctAns);
-    $("#a3").html(substance.t4.incorrectAns[1]);
-    $("#a4").html(substance.t4.incorrectAns[2]);
-    $("#a5").html(substance.t4.incorrectAns[3]);
-    $(".btn").click(function(event) {
-      console.log(this.id[1])
-      console.log(this)
-
-      if (this.id[1] == 2) {
-        correct++;
-        // timer.restart();
-        timer.stop();
-        content.hideOld();
-        content.thatsCorrect();
-      } else {
-        incorrect++;
-        // timer.restart();
-        timer.stop();
-        content.hideOld();
-        content.thatsIncorrect();
-      }
-      game.game5();
-      console.log("wr" + incorrect)
-      console.log("ri" + correct)
-    });
+    $("#a1").html("1 . " + substance.t4.incorrectAns[0]);
+    $("#a3").html("3 . " + substance.t4.correctAns);
+    $("#a2").html("2 . " + substance.t4.incorrectAns[1]);
+    $("#a4").html("4 . " + substance.t4.incorrectAns[2]);
+    $("#a5").html("5 . " + substance.t4.incorrectAns[3]);
   },
 
   game5: function() {
+    this.correctAns = 5;
     $("#question").html(substance.t5.question);
-    $("#a1").html(substance.t5.incorrectAns[0]);
-    $("#a2").html(substance.t5.correctAns);
-    $("#a3").html(substance.t5.incorrectAns[1]);
-    $("#a4").html(substance.t5.incorrectAns[2]);
-    $("#a5").html(substance.t5.incorrectAns[3]);
-    $(".btn").click(function(event) {
-      console.log(this.id[1])
-
-
-      if (this.id[1] == 2) {
-        correct++;
-        // timer.restart();
-        timer.stop();
-        content.hideOld();
-        content.thatsCorrect();
-      } else {
-        incorrect++;
-        // timer.restart();
-        timer.stop();
-        content.hideOld();
-        content.thatsIncorrect();
-      }
-      game.gameFinale();
-      console.log("wr" + incorrect)
-      console.log("ri" + correct)
-    });
+    $("#a1").html("1 . " + substance.t5.incorrectAns[0]);
+    $("#a5").html("5 . " + substance.t5.correctAns);
+    $("#a3").html("3 . " + substance.t5.incorrectAns[1]);
+    $("#a4").html("4 . " + substance.t5.incorrectAns[2]);
+    $("#a2").html("2 . " + substance.t5.incorrectAns[3]);
   },
 
-  gameFinale: function() {
+  game6: function() {
+    timer.stop();
 
-    content.hideOld();
-
+    $("#content").html("Yay it's over!");
+    $("#content").append("<div> Correct: " + correct + "</div>");
+    $("#content").append("<div> Incorrect: " + incorrect + "</div>" )
+    $("#content").append("<div class='btn btn-secondary btn-lg btn-block'> Continue?</div>")
+    correct = 0;
+    incorrect = 0;
+    game.count = 0;
+    this.game1();
+    console.log(game[("game" + game.count)])
 
   }
 
 };
 
+$(".btn").click(game.gamemeta);
+
+
 
 
 var timer = {
 
-  // time: 30,
+  time: 30,
 
   start: function() {
 
@@ -222,8 +148,10 @@ var timer = {
       timer.stop();
       $("#answers").html("I'm sorry but you're out of time. The correct answer is: " + "correctAnswer")
       timer.restart();
+      game.gamemeta();
     }
 
+    this.game[("game" + game.count)]();
   }
 
 
@@ -234,29 +162,32 @@ var content = {
   hideOld: function() {
     $("#answers").hide(400);
     $("#content").hide(400);
-
+    $("#question").hide(400);
   },
 
 
   thatsCorrect: function() {
-    $("#content").html("Hey you got it correct. . . Good for you, getting this answer: " + "<br>" + "correct answer");
-    $("#content").show(400);
-    $("#answers").hide(800);
+    $("#content").html("Hey you got it correct. . . Good for you, getting this answer: " + "<br>");
+    $("#content").show(800);
+    $("#answers").hide();
+    clearInterval(intervalId);
     timer.restart();
     timer.stop();
-    setTimeout(content.newDisplay, 6000)
+    setTimeout(content.newDisplay, 6000);
   },
 
   newDisplay: function() {
 
     $("#content").hide(400);
     $("#answers").show(400);
+    $("#question").show(400);
   },
 
   thatsIncorrect: function() {
-    $("#content").html("I'm sorry the correct answer was:" + "<br>" + "correct answer");
-    $("#content").show(400);
-    $("#answers").hide(800);
+    $("#content").html("I'm sorry the correct answer was:" + "<br>");
+    $("#content").show(800);
+    $("#answers").hide();
+    clearInterval(intervalId);
     timer.restart();
     timer.stop();
     setTimeout(content.newDisplay, 6000)
@@ -296,7 +227,3 @@ var substance = {
   }
 
 }
-
-// setTimeout(content.thatsCorrect, 1000*5)
-
-// setTimeout(content.thatsIncorrect, 1000*5)
