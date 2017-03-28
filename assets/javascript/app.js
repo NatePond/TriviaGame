@@ -36,7 +36,7 @@ var game = {
     console.log(game["game" + game.count])
     console.log("wr" + incorrect)
     console.log("ri" + correct)
-    
+
     console.log(substance[gar])
     console.log(substance[gar].correctAns)
 
@@ -66,7 +66,19 @@ var game = {
     $("#a3").html("3 . " + substance.t2.incorrectAns[1]);
     $("#a4").html("4 . " + substance.t2.incorrectAns[2]);
     $("#a5").html("5 . " + substance.t2.incorrectAns[3]);
-
+    // $("#content").append("<div id='newGame' class='btn btn-secondary btn-lg btn-block'> Continue?</div>")
+    //  timer.count = false;
+    //  // content.hideOld = false;
+    //  // content.thatsCorrect = false;
+    //  // content.thatsIncorrect = false;
+    // content.newDisplay = false;
+    // console.log(timer.count)
+    // $("#newGame").on("click", function() {
+    //   timer.count = true;
+    //   content.newDisplay = true;
+    //  //  content.thatsCorrect=true;
+    //  // content.thatsIncorrect=true;
+    // })
   },
 
   game3: function() {
@@ -97,19 +109,57 @@ var game = {
     $("#a3").html("3 . " + substance.t5.incorrectAns[1]);
     $("#a4").html("4 . " + substance.t5.incorrectAns[2]);
     $("#a2").html("2 . " + substance.t5.incorrectAns[3]);
+    timer.count = false;
+    content.newDisplay = false;
+    console.log(timer.count)
   },
 
   game6: function() {
-    timer.stop();
     $("#content").html("Yay it's over!");
     $("#content").append("<div> Correct: " + correct + "</div>");
     $("#content").append("<div> Incorrect: " + incorrect + "</div>")
-    $("#content").append("<div class='btn btn-secondary btn-lg btn-block'> Continue?</div>")
+    $("#content").append("<div id='newGame' class='btn btn-secondary btn-lg btn-block'> Continue?</div>")
     correct = 0;
     incorrect = 0;
     game.count = 1;
 
-    $(".btn").click(game.game1())
+
+    $("#newGame").on("click", function() {
+      timer.count = function() {
+
+        timer.time--;
+
+        $("#timer").html("Remaining Time: " + timer.time + " seconds");
+
+        if (timer.time == 0) {
+          count3 = game.count + 1;
+          var gar = "t" + game.count;
+          clearInterval(intervalId);
+          timer.stop();
+          content.hideOld();
+          game["game" + count3]();
+          $("#content").html("I'm sorry but you're out of time. The correct answer is: " + "<br>")
+          $("#content").append(substance[gar].correctAns)
+          $("#content").show(800);
+          $("#answers").hide();
+          clearInterval(intervalId);
+          timer.restart();
+          timer.stop();
+          game.counter();
+          setTimeout(content.newDisplay, 6000)
+        }
+      };
+      game.game1();
+      content.newDisplay = function() {
+        $("#content").hide(400);
+        $("#answers").show(400);
+        $("#question").show(400);
+      };
+      timer.count();
+      content.newDisplay();
+
+    })
+
   }
 
 };
@@ -144,8 +194,6 @@ var timer = {
   count: function() {
 
     timer.time--;
-
-
 
     $("#timer").html("Remaining Time: " + timer.time + " seconds");
 
