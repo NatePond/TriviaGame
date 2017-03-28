@@ -38,7 +38,18 @@ html {
   font-size: 18px;
 }
 
+img {
+  width: 500px;
+  padding-right: 10px;
+  padding-top: 10px;
+}
 
+#bgame1{
+width: 1200px;
+}
+// #game1{
+//   float: right;
+// }
 
 .box {
   background-color: rgba(245, 245, 245, 0.3);
