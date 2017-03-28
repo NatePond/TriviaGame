@@ -8,6 +8,9 @@ var intervalId;
 window.onload = function() {
   timer.start();
   game.game1();
+  var audio = new Audio("assets/PendulumOtherSide.mp3");
+audio.play();
+audio.loop = true;
 };
 
 var game = {
