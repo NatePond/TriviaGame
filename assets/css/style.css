@@ -9,6 +9,7 @@
   font-style: normal;
 }
 
+
 @font-face {
 font-family: 'Cyberfunk';
 src: url('https://natepond.github.io/TriviaGame/assets/fonts/Cyberfunk/Cyberfunk.eot');
@@ -19,7 +20,6 @@ src: url('https://natepond.github.io/TriviaGame/assets/fonts/Cyberfunk/Cyberfunk
   font-weight: normal;
   font-style: normal;
 }
-
 
 @font-face {
 font-family: 'SpaceGothic';
@@ -32,11 +32,14 @@ src: url('https://natepond.github.io/TriviaGame/assets/fonts/SpaceGothic/JLSSpac
   font-style: normal;
 }
 
+
 html {
   text-align:center;
   background: url("background.png");
   font-size: 18px;
 }
+
+overflow-wrap: inherit;
 
 img {
   width: 500px;
@@ -47,9 +50,10 @@ img {
 #game1{
 width: 1200px;
 }
-// #game1{
-//   float: right;
-// }
+
+li {
+  p{word-break: break-all;}
+}
 
 .box {
   background-color: rgba(245, 245, 245, 0.3);
@@ -66,6 +70,7 @@ font-family: 'CyberFunk';
 color: #ecf0f1;
 text-align: center;
 font-size: 50px;
+overflow-wrap: break-word;
 }
 
 .space {
@@ -73,6 +78,7 @@ font-size: 50px;
   color: #00ff00;
   text-align: center;
   font-size: 50px;
+  overflow-wrap: break-word;
 }
 
 #title{
@@ -87,6 +93,7 @@ list-style-type: none;
 
 .btn {
   font-size: 25px;
+  overflow: auto;
 }
 
 .navbar-fixed-bottom {
