@@ -32,27 +32,20 @@ src: url('https://natepond.github.io/TriviaGame/assets/fonts/SpaceGothic/JLSSpac
   font-style: normal;
 }
 
-
 html {
   text-align:center;
   background: url("background.png");
   font-size: 18px;
 }
 
-overflow-wrap: inherit;
-
 img {
-  width: 500px;
+  max-width: 640px;
   padding-right: 10px;
   padding-top: 10px;
 }
 
 #game1{
 width: 1200px;
-}
-
-li {
-  p{word-break: break-all;}
 }
 
 .box {
@@ -70,7 +63,6 @@ font-family: 'CyberFunk';
 color: #ecf0f1;
 text-align: center;
 font-size: 50px;
-overflow-wrap: break-word;
 }
 
 .space {
@@ -78,7 +70,6 @@ overflow-wrap: break-word;
   color: #00ff00;
   text-align: center;
   font-size: 50px;
-  overflow-wrap: break-word;
 }
 
 #title{
@@ -93,7 +84,27 @@ list-style-type: none;
 
 .btn {
   font-size: 25px;
-  overflow: auto;
+  // overflow: auto;
+}
+
+#a1 { max-width:2000px;
+    word-wrap:break-word;
+}
+
+#a2 { max-width:2000px;
+    word-wrap:break-word;
+}
+
+#a3 { max-width:2000px;
+    word-wrap:break-word;
+}
+
+#a4 { max-width:2000px;
+    word-wrap:break-word;
+}
+
+#a5 { max-width:2000px;
+    word-wrap:break-word;
 }
 
 .navbar-fixed-bottom {

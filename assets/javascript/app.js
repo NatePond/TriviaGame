@@ -5,13 +5,16 @@ var incorrect = 0;
 var intervalId;
 
 
+
 window.onload = function() {
   timer.start();
   game.game1();
   var audio = new Audio("assets/PendulumOtherSide.mp3");
-audio.play();
-audio.loop = true;
+  audio.play();
+  audio.loop = true;
 };
+
+
 
 var game = {
   count: 1,
@@ -25,16 +28,16 @@ var game = {
       content.hideOld();
       content.thatsCorrect();
       $("#content").append(substance[gar].correctAns + "<br><br>");
-      $("#content").append("<img id='bgame" + count2 + "' src='assets/images/bgame" + count2 + ".gif'>");
-      $("#content").append("<img id='game" + count2 + "' src='assets/images/game" + count2 + ".gif'>");
+      $("#content").append("<img id='bgame" + count2 + "' src='assets/images/bgame" + count2 + ".gif'>" +"<br><br>");
+      $("#content").append("<img id='game" + count2 + "' src='assets/images/game" + count2 + ".gif'>" +"<br><br>");
     } else {
       incorrect++;
       timer.stop();
       content.hideOld();
       content.thatsIncorrect();
       $("#content").append(substance[gar].correctAns + "<br><br>");
-      $("#content").append("<img id='bgame" + count2 + "' src='assets/images/bgame" + count2 + ".gif'>");
-      $("#content").append("<img id='game" + count2 + "' src='assets/images/game" + count2 + ".gif'>");
+      $("#content").append("<img id='bgame" + count2 + "' src='assets/images/bgame" + count2 + ".gif'>" +"<br><br>");
+      $("#content").append("<img id='game" + count2 + "' src='assets/images/game" + count2 + ".gif'>" +"<br><br>");
     }
     game["game" + game.count]();
   },
@@ -133,8 +136,8 @@ var game = {
           game["game" + count3]();
           $("#content").html("I'm sorry but you're out of time. The correct answer is: " + "<br>")
           $("#content").append(substance[gar].correctAns + "<br><br>")
-          $("#content").append("<img id='bgame" + count2 + "' src='assets/images/bgame" + count2 + ".gif'>");
-          $("#content").append("<img id='game" + count2 + "' src='assets/images/game" + count2 + ".gif'>");
+          $("#content").append("<img id='bgame" + count2 + "' src='assets/images/bgame" + count2 + ".gif'>" +"<br><br>");
+          $("#content").append("<img id='game" + count2 + "' src='assets/images/game" + count2 + ".gif'>" +"<br><br>");
           $("#content").show(800);
           $("#answers").hide();
           clearInterval(intervalId);
@@ -155,6 +158,7 @@ var game = {
     })
   }
 };
+
 
 $(".btn").click(game.gamemeta);
 
@@ -188,8 +192,8 @@ var timer = {
       game["game" + count3]();
       $("#content").html("I'm sorry but you're out of time. The correct answer is: " + "<br>")
       $("#content").append(substance[gar].correctAns + "<br><br>")
-      $("#content").append("<img id='bgame" + count2 + "' src='assets/images/bgame" + count2 + ".gif'>");
-          $("#content").append("<img id='game" + count2 + "' src='assets/images/game" + count2 + ".gif'>");
+      $("#content").append("<img id='bgame" + count2 + "' src='assets/images/bgame" + count2 + ".gif'>" +"<br><br>");
+      $("#content").append("<img id='game" + count2 + "' src='assets/images/game" + count2 + ".gif'>" +"<br><br>");
       $("#content").show(800);
       $("#answers").hide();
       clearInterval(intervalId);
@@ -236,7 +240,7 @@ var substance = {
   t1: {
     question: "Which of the following is not evidence of the influence of french philosopher Jean Baudrillard's influence on the Matrix triology?",
     correctAns: "Themes of Western Buddhism",
-    incorrectAns: ["Morpheus' quote 'Welcome to the Desert of the Real'", "Mr. Anderson hiding data software in a copy of Simulations and Simulacrum", "Apocryphyal predictions of an  future resulting from AI", "An inditment of consumer existence under capitalist society"]
+    incorrectAns: ["Morpheus' quote 'Welcome to the Desert of the Real'", "Mr. Anderson hiding data software in a copy of Simulations and<br> Simulacrum", "Apocryphyal predictions of an  future resulting from AI", "An inditment of consumer existence under capitalist society"]
   },
   t2: {
     question: "Blade Runner is based off of which Philip K Dick book?",
@@ -245,17 +249,18 @@ var substance = {
   },
   t3: {
     question: "Which themeatic element does not occur in any of the Ghost In the Shell cannon?",
-    correctAns: "Questioning the authenticity of one's soul, or ghost in the husk of a artifical body because of the amenisa resulting from transference",
-    incorrectAns: ["Conflicts between main land Japanese identity and outsiders from within and refgufes without", "Questions of the integrity of individuality in a time where consciousnesses are merged or left in limbo on the web", "The inevitable and unintentional emergence of copycat like that results of a highly technologized society, also known as Stand Alone Complex", "The often hidden or suppressed medical and political horrors hidden beneath the surface of a cybernetic utopia"]
+    correctAns: "Questioning the authenticity of one's soul, or ghost in the husk<br> of a artifical body because of the amenisa resulting<br> from transference",
+    incorrectAns: ["Conflicts between main land Japanese identity and outsiders<br> from within and refgufes without", "Questions of the integrity of individuality in a time where<br> consciousnesses are merged or left in limbo on the web", "The inevitable and unintentional emergence of copycat like that<br> results of a highly technologized society, also known as Stand Alone<br> Complex", "The often hidden or suppressed medical and political horrors<br> hidden beneath the surface of a cybernetic utopia"]
   },
   t4: {
     question: "Which of the follow is a lie about William Gibson's Neuromancer?",
-    correctAns: "'Neuromancer' is the primary benefactor helping the protagonist Hard Case crack the code to get access to the artifical intelligence known as 'Wintermute'",
-    incorrectAns: ["It is implied that there is Artifical Intelligence in other parts of the Galaxy and that these entities have taken on the persona of gods", "Case's employers removed his ability to get high off of cocaine and amphetamine in order to keep him focused on his mission. Eventually he is provided betaphenethylamine which seems to be a narcotic which his liver can process", "The book takes place in Japan, a growing California Sprawl, Constnobul, and a Spindel in Outer Space", "3Jane is a late generation clone of the daughter of the Tassier-Ashpool dynasty"]
+    correctAns: "'Neuromancer' is the primary benefactor helping the protagonist<br> Hard Case crack the code to get access to the artifical<br> intelligence known as 'Wintermute'",
+    incorrectAns: ["It is implied that there is Artifical Intelligence in other parts<br> of the Galaxy and that these entities have taken on the persona<br> of Voodoo gods", "Case's employers removed his ability to get high off of cocaine<br> and amphetamine in order to keep him focused on his mission.<br> Eventually he is provided betaphenethylamine which seems to be a<br> narcotic which his liver can process", "The book takes place in Japan, a growing California Sprawl,<br> Constnobul, and a Spindel in Outer Space", "3Jane is a late generation clone of the daughter of the<br> Tassier-Ashpool dynasty"]
   },
   t5: {
     question: "In Terry Gilliam's Zero Theorem what is the main purpose of Qohen Leth's use of the Neural Net Mancive?",
-    correctAns: "To prove the Zero Theorem, rendering all life meaningless and making 0 = 100%",
-    incorrectAns: ["To expand connect the timelines of this film with those in 12 Monkeys and Brazil", "To find the meaning of life", "To cure Qohen of his social anxiety, and restore his sense of belonging in an alienated society", "To break through problems created around the Big Crunch theory"]
+    correctAns: "To prove the Zero Theorem, rendering all life meaningless and<br> making 0 = 100%",
+    incorrectAns: ["To connect the timelines of this film with those in<br> 12 Monkeys and Brazil", "To find the meaning of life", "To cure Qohen of his social anxiety, and restore his sense of<br> belonging in an alienated society", "To break through problems created around<br> the Big Crunch theory"]
   }
 }
+
